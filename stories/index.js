@@ -16,10 +16,11 @@ import {
   ReactAutosuggestExample,
   ReactAutosuggestRemoteExample
 } from './examples/react-autosuggest'
+import { createTheme, ThemeProvider } from '@material-ui/core'
 
 storiesOf('ChipInput', module)
   .addDecorator(story => (
-    <div style={{ fontFamily: 'Roboto, sans-serif' }}>{story()}</div>
+    <ThemeProvider theme={createTheme()}><div style={{ fontFamily: 'Roboto, sans-serif' }}>{story()}</div></ThemeProvider>
   ))
   .add('with some chips', () => (
     <ChipInput

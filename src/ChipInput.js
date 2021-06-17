@@ -10,7 +10,7 @@ import FilledInput from '@material-ui/core/FilledInput/FilledInput'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import InputLabel from '@material-ui/core/InputLabel'
 import Chip from '@material-ui/core/Chip'
-import withStyles from '@material-ui/core/styles/withStyles'
+import withStyles from '@material-ui/styles/withStyles'
 import blue from '@material-ui/core/colors/blue'
 import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -562,9 +562,6 @@ class ChipInput extends React.Component {
     const InputMore = {}
     if (variant === 'outlined') {
       InputMore.notched = shrinkFloatingLabel
-      InputMore.labelWidth =
-        (shrinkFloatingLabel && this.labelNode && this.labelNode.offsetWidth) ||
-        0
     }
 
     if (variant !== 'standard') {
@@ -633,6 +630,7 @@ class ChipInput extends React.Component {
             onFocus={this.handleInputFocus}
             onBlur={this.handleInputBlur}
             inputRef={this.setActualInputRef}
+            label={label}
             disabled={disabled}
             fullWidth={fullWidthInput}
             placeholder={(!hasInput && (shrinkFloatingLabel || label == null)) || alwaysShowPlaceholder ? placeholder : null}
