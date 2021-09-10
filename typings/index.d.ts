@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { FormControlProps } from '@material-ui/core/FormControl';
-import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { InputProps as StandardInputProps } from '@material-ui/core/Input';
-import { FilledInputProps } from '@material-ui/core/FilledInput';
-import { OutlinedInputProps } from '@material-ui/core/OutlinedInput';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
+import * as React from "react";
+import { FormControlProps } from "@mui/material/FormControl";
+import { FormHelperTextProps } from "@mui/material/FormHelperText";
+import { InputProps as StandardInputProps } from "@mui/material/Input";
+import { FilledInputProps } from "@mui/material/FilledInput";
+import { OutlinedInputProps } from "@mui/material/OutlinedInput";
+import { InputLabelProps } from "@mui/material/InputLabel";
 
 export interface ChipRendererArgs {
   value: string;
@@ -23,14 +23,13 @@ export type ChipRenderer = (
   key: any
 ) => React.ReactNode;
 
-
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 // omitting onChange from FormControlProps as we use a custom onChange
-export interface BaseTextFieldProps extends Omit<FormControlProps, 'onChange'> {
+export interface BaseTextFieldProps extends Omit<FormControlProps, "onChange"> {
   allowDuplicates?: boolean;
   alwaysShowPlaceholder?: boolean;
-  blurBehavior?: 'clear' | 'add' | 'add-or-clear' | 'ignore';
+  blurBehavior?: "clear" | "add" | "add-or-clear" | "ignore";
   chipRenderer?: ChipRenderer;
   classes?: Record<string, string>;
   clearInputValueOnChange?: boolean;
@@ -60,25 +59,28 @@ export interface BaseTextFieldProps extends Omit<FormControlProps, 'onChange'> {
   placeholder?: string;
   readOnly?: boolean;
   value?: any[];
-  variant?: 'outlined' | 'standard' | 'filled';
+  variant?: "outlined" | "standard" | "filled";
 }
 
 export interface StandardTextFieldProps extends BaseTextFieldProps {
-  variant?: 'standard';
+  variant?: "standard";
   InputProps?: Partial<StandardInputProps>;
 }
 
 export interface FilledTextFieldProps extends BaseTextFieldProps {
-  variant: 'filled';
+  variant: "filled";
   InputProps?: Partial<FilledInputProps>;
 }
 
 export interface OutlinedTextFieldProps extends BaseTextFieldProps {
-  variant: 'outlined';
+  variant: "outlined";
   InputProps?: Partial<OutlinedInputProps>;
 }
 
-export type Props = StandardTextFieldProps | FilledTextFieldProps | OutlinedTextFieldProps;
+export type Props =
+  | StandardTextFieldProps
+  | FilledTextFieldProps
+  | OutlinedTextFieldProps;
 
 declare const ChipInput: React.ComponentType<Props>;
 export default ChipInput;
