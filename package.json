@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamWertarbyte/material-ui-chip-input.git"
+    "url": "git+https://github.com/jansedlon/material-ui-chip-input.git"
   },
   "keywords": [
     "react",
